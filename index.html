@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>INFORMATION CENTER</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background: url("https://github.com/2ftmtl/duelbitsbot/blob/main/BACKGROUND%20BLUE.png?raw=true") no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      text-align: center;
+      margin: 0;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    .header-image {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto 0px auto;
+    }
+    .header-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .menu-btn-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      margin-bottom: 8px;
+      box-sizing: border-box;
+    }
+
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 15px;
+      font-size: 14px;
+      border: none;
+      border-radius: 12px;
+      background: #3c4b58;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+      text-decoration: none; /* 🔥 no underline */
+    }
+
+    .menu-btn:hover { background: #23313e; }
+
+    .menu-btn img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      position: absolute;
+      left: 12px;
+    }
+
+    .menu-btn span {
+      width: 100%;
+      text-align: center;
+      pointer-events: none;
+      font-size: 15px;
+    }
+
+    .menu-btn::after {
+      content: ">>";
+      position: absolute;
+      right: 12px;
+      font-size: 18px;
+      color: #fff;
+      transition: transform 0.3s ease, right 0.3s ease;
+    }
+
+    .menu-btn.open::after {
+      transform: rotate(90deg);
+      right: 10px;
+    }
+
+    .content-section {
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+      background: rgba(13, 24, 62, 0.85);
+      border-radius: 12px;
+      padding: 0 12px;
+      box-sizing: border-box;
+      text-align: left;
+      margin-top: -4px;
+    }
+
+    .content-section.open {
+      max-height: 1200px;
+      padding: 12px;
+    }
+
+    .content-section img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .content-scroll {
+      max-height: 400px;
+      overflow-y: auto;
+      box-sizing: border-box;
+      font-size: 13px;
+    }
+
+    .content-scroll p {
+      margin: 10px 0;
+      line-height: 1.6;
+      word-wrap: break-word;
+    }
+
+    .content-scroll h2 { margin: 15px 0 10px 0; }
+    .content-scroll img { margin: 10px 0; }
+
+    /* 🔥 Remove all forced underlines */
+    a, u { text-decoration: none; color: inherit; }
+  </style>
+</head>
+<body>
+
+  <div class="header-image">
+    <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/HEADER%20REWARDS.png?raw=true" alt="Header Image">
+  </div>
+
+  <div class="menu-container">
+
+    <!-- BUTTON 1 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('vpn', this)">
+        <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/minilogo_acesrewards.png?raw=true" alt="VPN Logo">
+        <span>VIP Ranks, rakeback and instant rewards</span>
+      </button>
+      <div id="vpn" class="content-section">
+        <div class="content-scroll">
+          <h2>ACES Rewards</h2>
+          <p>Welcome to the most rewarding cash & crypto casino on Internet. Rank up the ranks of the Aces Rewards VIP system and receive up to 60% rakeback.</p>
+          <p>Claim Instant, Daily, Weekly and Monthly rakeback.</p>
+          <p>VIP TRANSFERS</p>
+          <p>If you already climbed the ladders of another VIP PROGRAM somewhere else, send us your stats and deposit proofs and we will make sure you get a matching VIP RANK.</p>
+          <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/ACESREWARDS.png?raw=true">
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 2 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('duelbits', this)">
+        <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/minilogo_vip.png?raw=true" alt="VIP Logo">
+        <span>VIP CLUB Membership</span>
+      </button>
+      <div id="duelbits" class="content-section">
+        <div class="content-scroll">
+          <h2>Welcome to the VIP CLUB Membership</h2>
+          <p>Unlock exclusive experiences and rewards beyond limits</p>
+          <p>Climb up the ranks to reach Bronze, Silver or Gold ranks.</p>
+          <p>Exclusive VIP promotions, exclusive tournaments, dedicated VIP manager, Telegram Intercom service, VIP Intercom Inbox & email access, Hospitality, Best odds guaranteed on Sports.</p>
+          <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/VIPCLUBMEMBERSHIP.png?raw=true">
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 3 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('crazybet', this)">
+        <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/minilogo_leaderboards.png?raw=true" alt="Leaderboards Logo">
+        <span>Daily & Weekly Leaderboards</span>
+      </button>
+      <div id="crazybet" class="content-section">
+        <div class="content-scroll">
+          <h2>Daily & weekly leaderboards</h2>
+          <p>Take part in the daily and weekly leaderboards by wagering on Duelbits today! 5 000$ daily leaderboard and 10 000$ weekly leaderboard! Finish in the Top 5 to receive your cash prizes!</p>
+          <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/LEADERBOARDS.png?raw=true">
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 4 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('challenges', this)">
+        <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/minilogo_challenges.png?raw=true" alt="Challenges Logo">
+        <span>Challenges & Prizes</span>
+      </button>
+      <div id="challenges" class="content-section">
+        <div class="content-scroll">
+          <h2>Daily, weekly and monthly challenges!</h2>
+          <p>Explore the different challenges! Weekly Duelbits Originals tournmanets up to 10 000$ prize pools. Wager on slots with challenges or special sports bets challenges.</p>
+          <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/CHALLENGES.png?raw=true">
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 5 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('sports', this)">
+        <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/minilogo_fantasy.png?raw=true" alt="Sports Logo">
+        <span>Sports promotions, boosted Odds & fantasy</span>
+      </button>
+      <div id="sports" class="content-section">
+        <div class="content-scroll">
+          <h2>Sports promotions every day</h2>
+          <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/SPORTS%20PROMOS.png?raw=true">
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 6 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('live', this)">
+        <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/minilogo_rakeback.png?raw=true" alt="Live Logo">
+        <span>Live casino & live games</span>
+      </button>
+      <div id="live" class="content-section">
+        <div class="content-scroll">
+          <h2>Live games and game shows</h2>
+          <p>Play live blackjack, roulette, baccarat and more! From Crazy Time to Megaball, you can take part in all the live games available from all the best live game providers.</p>
+          <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/LIVEGAMES.png?raw=true">
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 7 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('originals', this)">
+        <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/minilogo_originals.png?raw=true" alt="Originals Logo">
+        <span>DUELBITS Originals</span>
+      </button>
+      <div id="originals" class="content-section">
+        <div class="content-scroll">
+          <h2>Enjoy Original games today</h2>
+          <p>More than 12 original games with the best odds from Plinko, Blackjack, Hi-Lo, Mines, Dice and more! Stay tuned for new games releasing soon.</p>
+          <img src="https://github.com/2ftmtl/duelbitsbot/blob/main/ORIGINALS.png?raw=true">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    let openSection = null;
+    let openButton = null;
+
+    function toggleSection(id, btn) {
+      const section = document.getElementById(id);
+      if(openSection && openSection !== section) {
+        openSection.classList.remove("open");
+        if(openButton) openButton.classList.remove("open");
+      }
+      if(section.classList.contains("open")) {
+        section.classList.remove("open");
+        btn.classList.remove("open");
+        openSection = null;
+        openButton = null;
+      } else {
+        section.classList.add("open");
+        btn.classList.add("open");
+        openSection = section;
+        openButton = btn;
+      }
+    }
+  </script>
+</body>
+</html>
